@@ -4,7 +4,11 @@ export default {
   css: {
     preprocessorOptions: {
       scss: {
-        quietDeps: true
+        quietDeps: true,
+        includePaths: [
+          'node_modules/govuk-frontend',
+          'node_modules/govuk_publishing_components/app/assets/stylesheets',
+        ]
       }
     }
   },
@@ -14,6 +18,10 @@ export default {
         {
           src: 'node_modules/govuk-frontend/govuk/assets/*',
           dest: 'assets'
+        },
+        {
+          src: 'node_modules/govuk_publishing_components/app/assets/images/govuk_publishing_components/*',
+          dest: 'assets/govuk_publishing_components'
         }
       ]
     })
