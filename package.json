@@ -9,9 +9,12 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^4.4.5"
+    "sass": "^1.69.3",
+    "vite": "^4.4.5",
+    "vite-plugin-static-copy": "^0.17.0"
   },
   "dependencies": {
+    "govuk-frontend": "^4.7.0",
     "prosemirror-example-setup": "^1.2.2",
     "prosemirror-model": "^1.19.3",
     "prosemirror-schema-basic": "^1.2.2",

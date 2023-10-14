@@ -1,7 +1,7 @@
+@import "govuk-frontend/govuk/all";
+
 :root {
   font-family: system-ui, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 }
 
 #editor,
@@ -17,6 +17,5 @@
 
 .ProseMirror {
   padding: 4px 8px 4px 14px;
-  line-height: 1.2;
   outline: none;
 }

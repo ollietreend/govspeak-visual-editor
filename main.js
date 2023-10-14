@@ -1,4 +1,4 @@
-import './style.css'
+import './style.scss'
 import 'prosemirror-view/style/prosemirror.css'
 import 'prosemirror-menu/style/menu.css'
 import 'prosemirror-example-setup/style/style.css'
