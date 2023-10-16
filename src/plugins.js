@@ -1,31 +1,22 @@
 import { buildMenuItems, exampleSetup } from "prosemirror-example-setup"
+import { inputRules } from "prosemirror-inputrules"
 import { Plugin } from "prosemirror-state"
-import { wrapItem } from "prosemirror-menu"
-import inputrules from "./inputrules";
+import customNodes from "./nodes"
 
 const buildMenu = (schema) => {
   const menu = buildMenuItems(schema);
 
-  let node;
-  if (node = schema.nodes.call_to_action) {
-    menu.typeMenu.content.push(
-      wrapItem(node, {
-        title: "Change to call to action",
-        label: "Call to action"
-      })
-    );
-  }
-
-  if (node = schema.nodes.warning_callout) {
-    menu.typeMenu.content.push(
-      wrapItem(node, {
-        title: "Change to warning callout",
-        label: "Warning callout"
-      })
-    );
-  }
+  // Add menu items from custom nodes
+  customNodes.forEach((node) => {
+    node.buildMenu({ menu, schema });
+  });
 
   return menu.fullMenu;
+};
+
+const customInputRules = (schema) => {
+  const rules = customNodes.flatMap((node) => (node.inputRules(schema)));
+  return inputRules({ rules });
 };
 
 export default (options) => {
@@ -42,8 +33,8 @@ export default (options) => {
     }
   }));
 
-  // Govspeak-specific input rules
-  plugins.push(inputrules(options.schema));
+  // Input rules for custom nodes
+  plugins.push(customInputRules(options.schema));
 
   return plugins;
 };
