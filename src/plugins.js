@@ -1,6 +1,7 @@
 import { buildMenuItems, exampleSetup } from "prosemirror-example-setup"
 import { Plugin } from "prosemirror-state"
 import { wrapItem } from "prosemirror-menu"
+import inputrules from "./inputrules";
 
 const buildMenu = (schema) => {
   const menu = buildMenuItems(schema);
@@ -40,6 +41,9 @@ export default (options) => {
       attributes: { class: "govspeak" }
     }
   }));
+
+  // Govspeak-specific input rules
+  plugins.push(inputrules(options.schema));
 
   return plugins;
 };
