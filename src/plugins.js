@@ -15,6 +15,15 @@ const buildMenu = (schema) => {
     );
   }
 
+  if (node = schema.nodes.warning_callout) {
+    menu.typeMenu.content.push(
+      wrapItem(node, {
+        title: "Change to warning callout",
+        label: "Warning callout"
+      })
+    );
+  }
+
   return menu.fullMenu;
 };
 
